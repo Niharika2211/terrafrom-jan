@@ -3,6 +3,11 @@ variable "azs" {
   default = ["us-east-1a", "us-east-1b"]
 }
 
+variable "vpc_cidr_rng" {
+  type    = string
+  default = "192.0.0.0/16"
+}
+
 variable "pub_sub_cidr" {
   type    = list(string)
   default = ["192.0.1.0/24", "192.0.2.0/24"]
@@ -15,11 +20,6 @@ variable "pvt_sub_cidr" {
 variable "db_sub_cidr" {
   type    = list(string)
   default = ["192.0.5.0/24", "192.0.6.0/24"]
-}
-
-variable "vpc_cidr_rng" {
-  type    = string
-  default = "192.0.0.0/16"
 }
 
 variable "enable_dns_hostnames" {
@@ -37,7 +37,6 @@ variable "project-name" {
   default = "mini"
 }
 
-
 variable "common_tags" {
   type = map(any)
   default = {
@@ -48,8 +47,7 @@ variable "common_tags" {
   }
 }
 
-
 variable "nat_enable" {
   type    = bool
-  default = "true"
+  default = true
 }
